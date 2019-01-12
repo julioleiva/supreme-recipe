@@ -1,0 +1,37 @@
+<header>
+  <nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">¿Qué comemos hoy?</span>
+  </nav>
+</header>
+<hr class="my-4" />
+<div class="container">
+  <div class="input-group input-group-lg">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-lg">Buscar</span>
+    </div>
+    <input
+      (keyup)="searchRecipes$.next($event.target.value)"
+      type="text"
+      class="form-control"
+      aria-label="Buscar"
+      aria-describedby="inputGroup-sizing-sm"
+      placeholder="Busca por plato o por ingrediente..."
+    />
+  </div>
+  <hr class="my-4" />
+  <div class="row justify-content-center align-items-center minh-100" *ngIf="resultsRecipes">
+    <div
+      class="card col-lg-12"
+      style="width: 18rem;"
+      *ngFor="let result of resultsRecipes"
+    >
+      <div class="card-body">
+        <h5 class="card-title">{{ result.title }}</h5>
+        <p class="card-text">
+            {{ result.ingredients }}
+        </p>
+        <a href="{{ result.href }}" class="card-link">Ver</a>
+      </div>
+    </div>
+  </div>
+</div>
