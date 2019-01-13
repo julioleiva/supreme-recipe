@@ -12,6 +12,8 @@ You must enable cross-origin resource-sharing. You can use this extension:
  [Chorme] (https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)
  [Firefox] (https://addons.mozilla.org/firefox/addon/accesscontrol-allow-all-origin/)
 
+The master branch is fully operational (enabling cors-sharing in the browser)
+In the feature/jsonP branch the project architecture has been modularized and JsonpModule is used to avoid CORS, still unfinished
 
 ## Build
 
