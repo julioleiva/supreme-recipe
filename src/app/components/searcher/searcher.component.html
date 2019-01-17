@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="input-group input-group-lg">
+    <input
+      (keyup)="search(searcher.value)"
+      #searcher
+      type="text"
+      class="recipe-input"
+      placeholder="Busca por plato o por ingrediente..."
+    />
+  </div>
+  <div
+    class="row justify-content-center align-items-center minh-100"
+    *ngIf="recipes$"
+  >
+    <div class="recipe-card col-lg-8" *ngFor="let recipe of (recipes$ | async)">
+      <div>
+        <h5 class="h5-reset">{{ recipe.title }}</h5>
+        <p class="alert alert-danger ingredients">{{ recipe.ingredients }}</p>
+        <p class="link">
+          <a href="{{ recipe.href }}" class="btn btn-outline-secondary"
+            >Ver >></a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
