@@ -1,29 +1,38 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/switchMap';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+// rxjs
+import { Observable, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
-import { HttpClient } from '@angular/common/http'
+// Models and configs
+import { SearchItemResponse } from './../shared/models/SearchItemResponse.model';
+import { Recipe } from './../shared/models/Recipe.model';
+import { AppSettings } from './../shared/configs/AppSettings';
+
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class SearchService {
 
-  urlRoot: String = 'http://www.recipepuppy.com/api/';
-  recipeQuery: String = '?q=';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-  
-  search(items: Observable<String>) {
-    return items.debounceTime(400)
-      .switchMap( (item: String) => this.searchInputs(item));
-  } 
+  getRecipes(name: string) : Observable<Recipe[]> {
 
-  searchInputs(item: String) {
-    return this.http
-      .get(`${this.urlRoot}${this.recipeQuery}${item}`)
+    if(!name.trim()){
+      return of([]);
+    }
+
+    const url = `${AppSettings.API_ENDPOINT_ROOT}${AppSettings.API_ENDPOINT_QUERY}${name}`
+
+    return this.http.get<SearchItemResponse>(url).pipe(
+      map(response => {
+        return response.results;
+      }),
+      catchError( error => {
+        console.log(error)
+        return of([]);
+      })
+    );
   }
 }
