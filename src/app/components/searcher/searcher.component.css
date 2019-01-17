@@ -1,0 +1,48 @@
+.h5-reset {
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  border-bottom: 2px solid rgba(255, 119, 57, 1);
+  font-size: 1.5rem;
+}
+
+.link {
+  text-align: right;
+}
+
+.link a {
+  font-weight: bolder;
+}
+
+.ingredients {
+  background-color: blanchedalmond;
+  font-weight: bolder;
+}
+
+.recipe-input {
+  background-color: rgba(255, 119, 57, 0.15);
+  margin-bottom: 1rem;
+  width: 30%;
+  border-radius: 0.5rem;
+  border: 0px;
+  height: 3rem;
+  box-shadow: 0.5rem 0.5rem 0.3rem 0 rgba(255, 119, 57, 0.5);
+  font-weight: bolder;
+  margin-bottom: 1em;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.recipe-card {
+  background-color: rgba(255, 119, 57, 0.15);
+  box-shadow: 0.5rem 0.5rem 0.3rem 0 rgba(255, 119, 57, 0.5);
+  border: 0.2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.5rem 0.5rem 0.3rem 0 rgba(0, 0, 0, 0.5);
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.recipe-card div h5 {
+  text-decoration: black;
+}

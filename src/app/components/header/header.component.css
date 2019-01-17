@@ -1,0 +1,10 @@
+nav {
+  background-color: rgba(255, 119, 57, 0.75);
+  font-weight: bolder;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  font-size: 2em;
+}
+nav p {
+  color: rgba(0, 0, 0, 0.5);
+}
