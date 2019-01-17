@@ -23,7 +23,7 @@ export class SearcherComponent implements OnInit {
 
   ngOnInit() {
     this.recipes$ = this.searchChar.pipe(
-      debounceTime(500),
+      debounceTime(300),
       distinctUntilChanged(),
       switchMap(word => this.searchService.getRecipes(word))
     );
