@@ -30,7 +30,6 @@ export class SearchService {
         return response.results;
       }),
       catchError( error => {
-        console.log(error)
         return of([]);
       })
     );
