@@ -10,7 +10,7 @@
   </div>
   <div
     class="row justify-content-center align-items-center minh-100"
-    *ngIf="(recipes$ | async)?.length > 0; else noResults"
+    *ngIf="(recipes$ | async)?.length !==0; else noResults"
   >
     <div class="recipe-card col-lg-8" *ngFor="let recipe of (recipes$ | async)">
       <div>
